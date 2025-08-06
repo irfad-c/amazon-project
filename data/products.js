@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
@@ -111,19 +111,7 @@ const products = [
     priceCents: 3390,
     keywords: ["shoes", "running shoes", "footwear"],
   },
-  {
-    id: "5968897c-4d27-4872-89f6-5bcb052746d7",
-    image: "images/products/women-chiffon-beachwear-coverup-black.jpg",
-    name: "Women's Chiffon Beachwear Cover Up - Black",
-    rating: {
-      stars: 4.5,
-      count: 235,
-    },
-    priceCents: 2070,
-    keywords: ["robe", "swimsuit", "swimming", "bathing", "apparel"],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png",
-  },
+ 
   {
     id: "aad29d11-ea98-41ee-9285-b916638cac4a",
     image: "images/products/round-sunglasses-black.jpg",
@@ -157,17 +145,7 @@ const products = [
     priceCents: 4599,
     keywords: ["bedroom", "curtains", "home"],
   },
-  {
-    id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
-    image: "images/products/men-slim-fit-summer-shorts-gray.jpg",
-    name: "Men's Slim-Fit Summer Shorts",
-    rating: {
-      stars: 4,
-      count: 160,
-    },
-    priceCents: 1699,
-    keywords: ["shorts", "apparel", "mens"],
-  },
+  
   {
     id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
     image: "images/products/electric-glass-and-steel-hot-water-kettle.webp",
@@ -212,19 +190,7 @@ const products = [
     priceCents: 1799,
     keywords: ["jewelry", "accessories", "womens"],
   },
-  {
-    id: "b0f17cc5-8b40-4ca5-9142-b61fe3d98c85",
-    image: "images/products/women-stretch-popover-hoodie-black.jpg",
-    name: "Women's Stretch Popover Hoodie",
-    rating: {
-      stars: 4.5,
-      count: 2465,
-    },
-    priceCents: 1374,
-    keywords: ["hooded", "hoodies", "sweaters", "womens", "apparel"],
-    type: "clothing",
-    sizeChartLink: "images/clothing-size-chart.png",
-  },
+ 
   {
     id: "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
     image: "images/products/bathroom-rug.jpg",
@@ -293,17 +259,7 @@ const products = [
     priceCents: 1250,
     keywords: ["hats", "winter hats", "beanies", "tuques", "apparel", "womens"],
   },
-  {
-    id: "ee1f7c56-f977-40a4-9642-12ba5072e2b0",
-    image: "images/products/men-chino-pants-beige.jpg",
-    name: "Men's Classic-fit Pleated Chino Pants",
-    rating: {
-      stars: 4.5,
-      count: 9017,
-    },
-    priceCents: 2290,
-    keywords: ["pants", "apparel", "mens"],
-  },
+  
   {
     id: "1c079479-8586-494f-ab53-219325432536",
     image: "images/products/men-athletic-shoes-green.jpg",
@@ -348,17 +304,7 @@ const products = [
     priceCents: 1649,
     keywords: ["bathroom", "washroom", "mirrors", "home"],
   },
-  {
-    id: "a45cfa0a-66d6-4dc7-9475-e2b01595f7d7",
-    image: "images/products/women-french-terry-fleece-jogger-camo.jpg",
-    name: "Women's Fleece Jogger Sweatpant",
-    rating: {
-      stars: 4.5,
-      count: 248,
-    },
-    priceCents: 2400,
-    keywords: ["pants", "sweatpants", "jogging", "apparel", "womens"],
-  },
+  
   {
     id: "d339adf3-e004-4c20-a120-40e8874c66cb",
     image: "images/products/double-elongated-twist-french-wire-earrings.webp",
