@@ -1,5 +1,6 @@
-import { products } from "./data/products.js";
-import { formatCurrency } from "./utils/money.js";
+import { products } from "./products.js";
+import { formatCurrency } from "./money.js";
+import { addToCart, cart } from "./cart.js";
 
 let productItemsHTML = "";
 products.forEach((productItems) => {
@@ -51,9 +52,30 @@ products.forEach((productItems) => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">Add to Cart</button>
+          <button class="add-to-cart-button button-primary js-add-to-cart-button" data-product-id="${
+            productItems.id
+          }" data-product-name="${productItems.name}"
+          >Add to Cart</button> 
         </div>
   `;
 });
 
-document.querySelector(".js-products-grid").innerHTML = productItemsHTML;
+const productsGrid = document.querySelector(".js-products-grid");
+
+if (productsGrid) {
+  productsGrid.innerHTML = productItemsHTML;
+} else {
+  console.log("productsGrid does not triggered");
+}
+
+document.querySelectorAll(".js-add-to-cart-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const productId = button.dataset.productId;
+    const productName = button.dataset.productName;
+    addToCart(productId, productName);
+  });
+});
+
+
+
+
