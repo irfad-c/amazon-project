@@ -1,17 +1,19 @@
+import { cart, removeFromCart } from "./cart.js";
 import { products } from "./products.js";
 import { formatCurrency } from "./money.js";
-import { cart, saveCartStorage } from "./cart.js";
 
-export function updateCheckoutPage() {
-  let cartItemsHTML = "";
-  cart.forEach((cartItem) => {
-    let matchingProduct;
-    matchingProduct = products.find((product) => {
-      return product.id === cartItem.id;
-      /*Here if the above condition is true,product will return as matchingProduct*/
-    });
+let cartItemsHTML = "";
+cart.forEach((cartItem) => {
+  let matchingProduct = products.find((product) => product.id === cartItem.id);
 
-    cartItemsHTML += `          <div class="cart-item-container">
+  if (!matchingProduct) {
+    console.warn(`No matching product found for ID: ${cartItem.id}`);
+    return; // skip rendering if no match
+  }
+
+  cartItemsHTML += `<div class="cart-item-container js-cart-item-container-${
+    matchingProduct.id
+  }">
             <div class="delivery-date">Delivery date: Tuesday, June 21</div>
 
             <div class="cart-item-details-grid">
@@ -34,8 +36,10 @@ export function updateCheckoutPage() {
                   <span class="update-quantity-link link-primary">
                     Update
                   </span>
-                  <span class="delete-quantity-link link-primary">
-                    Delete
+                  <span class="delete-quantity-link link-primary js-delete" data-pick-product="${
+                    matchingProduct.id
+                  }">
+                    Delete 
                   </span>
           
                 </div>
@@ -82,8 +86,19 @@ export function updateCheckoutPage() {
               </div>
             </div>
           </div>`;
+});
+document.querySelector(".js-order-summary").innerHTML = cartItemsHTML;
+/*js order summary is present in the checkout.html file*/
+
+document.querySelectorAll(".js-delete").forEach((button) => {
+  button.addEventListener("click", () => {
+    let pickProduct = button.dataset.pickProduct;
+
+    removeFromCart(pickProduct);
+
+    const container = document.querySelector(
+      `.js-cart-item-container-${pickProduct}`
+    );
+    container.remove();
   });
-  document.querySelector(".js-order-summary").innerHTML = cartItemsHTML;
-  /*js order summary is present in the checkout.html file*/
-}
-updateCheckoutPage();
+});
